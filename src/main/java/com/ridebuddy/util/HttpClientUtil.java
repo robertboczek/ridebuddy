@@ -35,7 +35,7 @@ public class HttpClientUtil {
 			}
 			conn.disconnect();
 		} catch (Exception e) {
-			logger.error("Exception while sending GET request to: " + address);
+			logger.error("Exception while sending GET request to: " + address, e);
 			return null;
 		}
 		return sb.toString();

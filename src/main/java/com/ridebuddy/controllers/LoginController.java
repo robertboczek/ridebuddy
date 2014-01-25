@@ -3,7 +3,6 @@ package com.ridebuddy.controllers;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +52,7 @@ public class LoginController extends AbstractController {
 		logger.info("Received FB login: " + fbLogin);
 		FbUser fbUser = null;
 		try {
-			fbUser = getFbUser("https://graph.facebook.com/oauth/access_token?client_id=204946226368181&redirect_uri=http://ec2-50-16-158-177.compute-1.amazonaws.com:8080/ridebuddy/fbLogin&client_secret=961f70d8402f92d77b492d74e5408a&code="
+			fbUser = getFbUser("https://graph.facebook.com/oauth/access_token?client_id=204946226368181&redirect_uri=http://ec2-50-16-158-177.compute-1.amazonaws.com:8080/ridebuddy/fbLogin&client_secret=961f70d8402f92d77b492d74e5408a59&code="
 					+ fbLogin.getCode());
 		} catch (Exception e) {
 			logger.error("Error while getting fb token", e);
@@ -96,6 +95,7 @@ public class LoginController extends AbstractController {
 	private FbUser getFbUser(String address) throws Exception {
 
 		String response = httpClientUtil.getRequest(address);
+		logger.info("Response: " + response);
 		String token = response.substring(
 				response.indexOf(accessToken) + accessToken.length(),
 				response.indexOf(expiresKey));
