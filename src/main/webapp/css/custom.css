@@ -1,0 +1,112 @@
+body {
+  min-width: 800px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.layout {
+  min-width: 60%;
+  width: 60%;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo {
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login .loginLabelTable {
+  min-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+}
+
+.login {
+  margin-top: 5%;
+}
+
+.login .loginButtonRow {
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+.login .loginFormTable {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 70%;
+}
+
+.newUser {
+  margin-top: 10%;
+}
+
+.newUser .newUserFormTable {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 70%;
+}
+
+.newUser .newUserButtonsRow {
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+.resetPassword {
+  margin-top: 10%;
+}
+
+.resetPassword .resetPasswordFormTable {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 70%;
+}
+
+.resetPassword .resetPasswordButtonsRow {
+  margin-left: 30%;
+  margin-top: 5%;
+}
+
+.login .loginWithFb {
+  text-align: right;
+}
+
+.formError {
+  color: #C09853;
+}
+
+.required {
+  margin-left: 25%;
+}
+
+#header .userDetails {
+  text-align: right;
+}
+
+#header .dropdown-menu {
+  text-align: right;
+  float: right; 
+  right: 0; 
+  left: auto;
+  width: 50px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  min-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: -1;
+}
+
+#footer div {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;	
+}
