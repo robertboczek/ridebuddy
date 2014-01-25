@@ -49,6 +49,7 @@ public class LoginController extends AbstractController {
 
 	@RequestMapping(value = "/fbLogin")
 	public String fbLogin(FbLogin fbLogin, HttpSession session) {
+		/*
 		logger.info("Received FB login: " + fbLogin);
 		FbUser fbUser = null;
 		try {
@@ -58,7 +59,13 @@ public class LoginController extends AbstractController {
 			logger.error("Error while getting fb token", e);
 			return "redirect:login";
 		}
-
+		 */
+		FbUser fbUser = new FbUser();
+		fbUser.setEmail("sapanda88@gmail.com");
+		fbUser.setFirst_name("Saswat");
+		fbUser.setLast_name("Panda");
+		fbUser.setId("432743");
+		
 		List<Credentials> credentialsList = credentialsDao.getById(fbUser.getEmail());
 		Credentials credentials = null;
 		boolean shouldSave = false;
