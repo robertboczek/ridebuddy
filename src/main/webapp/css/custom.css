@@ -13,6 +13,14 @@ body {
   width:300px;
 }
 
+.btn-join {
+  background-color: #1CB826;
+}
+
+.btn-join:hover {
+  background-color: #0B8013;
+}
+
 #postsTable {
   background-color: white;
 }

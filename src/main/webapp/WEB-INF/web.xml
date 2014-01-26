@@ -21,7 +21,7 @@
     	</init-param>
     	<init-param>
     		<param-name>context</param-name>
-    		<param-value>/ridebuddy</param-value>
+    		<param-value></param-value>
     	</init-param>
 	</filter>
 	<filter-mapping>

@@ -8,7 +8,7 @@
 		<td>${post.postContent}</td>
 		<td style="width: 50px;">
 		  <b>0</b>&nbsp;<span class="glyphicon glyphicon-user"></span>
-		  <div class="btn btn-primary join" title="" data-placement="top" data-toggle="tooltip" data-original-title="Join"><span class="glyphicon glyphicon-plus"></span></div>
+		  <div class="btn btn-join join" title="" data-placement="top" data-toggle="tooltip" data-original-title="Join"><span class="glyphicon glyphicon-plus"></span></div>
 		</td>
 	</tr>
 </c:forEach>
