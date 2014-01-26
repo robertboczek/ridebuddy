@@ -20,4 +20,8 @@ $(document).ready(function(){
   });
   
   $("#postsTable").load("allPosts");
+  
+  $(document).ready(function(){
+    $("#rideTime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+  });
 });

@@ -48,6 +48,8 @@
 		cache-period="10000" />
 	<mvc:resources mapping="/resources/jquery/**" location="/jquery/"
 		cache-period="10000" />
+	<mvc:resources mapping="/resources/datetimepicker/**" location="/datetimepicker/"
+		cache-period="0" />
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
