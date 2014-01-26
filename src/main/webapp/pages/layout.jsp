@@ -8,10 +8,12 @@
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 <link rel="shortcut icon" href="<c:url value="resources/images/mda.ico" />" />
 <link href="<c:url value="resources/bootstrap/css/bootstrap.css"/>" rel="stylesheet">
+<link href="<c:url value="resources/bootstrap/css/bootstrap-datetimepicker.min.css"/>" rel="stylesheet">
 <link href="<c:url value="resources/css/custom.css" />" rel="stylesheet">
 
-<script type="text/javascript" src="<c:url value="resources/jquery/jquery.min.js"/>"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script type="text/javascript" src="<c:url value="resources/bootstrap/js/bootstrap.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="resources/bootstrap/js/bootstrap-datetimepicker.js"/>"></script>
 <script type="text/javascript">
 </script>
 </head>
