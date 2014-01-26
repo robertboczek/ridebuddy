@@ -21,4 +21,9 @@
         <put-attribute name="title" value="RTG" />
         <put-attribute name="body" value="/pages/welcome.jsp" />
     </definition>
+    
+    <definition name="myrides" extends="base.definition">
+        <put-attribute name="title" value="RTG" />
+        <put-attribute name="body" value="/pages/myrides.jsp" />
+    </definition>
 </tiles-definitions>
