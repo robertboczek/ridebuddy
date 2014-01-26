@@ -47,7 +47,7 @@ public class PostsController extends AbstractController {
 	public String createNewPost(Posts post, HttpSession session) {
 		try {
 			logger.info("Time: " + post.getTime());
-			post.setTime(Long.valueOf(new SimpleDateFormat("EEE MMM dd K:mm a").parse(post.getTime()).getTime()).toString());
+			post.setTime(Long.valueOf(new SimpleDateFormat("yyyy-mm-dd hh:mm").parse(post.getTime()).getTime()).toString());
 			User user = getUserFromSession(session);
 			post.setEmail(user.getEmail());
 			post.setPostId(UUID.randomUUID().toString().replace("-", ""));
@@ -72,7 +72,7 @@ public class PostsController extends AbstractController {
 		for (Posts post : posts) {
 			ActivePosts activePost = new ActivePosts();
 			activePost.setPostContent(post.getContent());
-			activePost.setPostTime(new SimpleDateFormat("EEE MMM dd K:mm a").format(post.getDate()));
+			activePost.setPostTime(new SimpleDateFormat("yyyy-mm-dd hh:mm").format(post.getDate()));
 			activePost.setPostId(post.getPostId());
 			
 			// Find and add rides too

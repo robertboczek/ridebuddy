@@ -59,7 +59,7 @@ public class RidesController extends AbstractController {
 		    if (post.getEmail().equals(user.getEmail())) {
 				ActivePosts activePost = new ActivePosts();
 				activePost.setPostContent(post.getContent());
-				activePost.setPostTime(new SimpleDateFormat("EEE MMM dd K:mm a").format(post.getDate()));
+				activePost.setPostTime(new SimpleDateFormat("yyyy-mm-dd hh:mm").format(post.getDate()));
 				activePost.setPostId(post.getPostId());
 				for (Credentials credentials : credList) {
 					logger.info(credentials.getEmail() + " " + post.getEmail());
@@ -81,7 +81,7 @@ public class RidesController extends AbstractController {
 		for (Posts post : posts) {
 		    if (post.getPostId().equals(postId)) {
 				activePost.setPostContent(post.getContent());
-				activePost.setPostTime(new SimpleDateFormat("EEE MMM dd K:mm a").format(post.getDate()));
+				activePost.setPostTime(new SimpleDateFormat("yyyy-mm-dd hh:mm").format(post.getDate()));
 				activePost.setPostId(post.getPostId());
 				for (Credentials credentials : credList) {
 					logger.info(credentials.getEmail() + " " + post.getEmail());
