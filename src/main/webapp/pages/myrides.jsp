@@ -1,7 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="ridesTable">
-  <header>My Posts</header>
+  <div style="padding-top: 20px;margin-top: 20px;"><h2  style="font-size: 18px; " class="label label-success">Ride I created</h2></div>
+  	<c:if test="${myposts.size() == 0}">
+	  <div style="margin-top: 10px; margin-bottom: 25px; font-size: 16px; "><h2 class="label label-default">You have not posted any rides yet</h2></div>
+	</c:if>
+    <c:if test="${myposts.size() > 0}">
 	<table class="table table-hover">
 	<c:forEach var="post" items="${myposts}">
 	  <tr class="post">
@@ -14,8 +18,9 @@
 	  </tr>
 	</c:forEach>
 	</table>
+	</c:if>   
 	
-  <header>My Rides</header>
+  <div style="padding-bottom: 10px;"><h2 class="label label-success " style="font-size: 18px; ">Rides I joined</h2></div>
 	<table class="table table-hover">
 	<c:forEach var="post" items="${otherposts}">
 	  <tr class="post">

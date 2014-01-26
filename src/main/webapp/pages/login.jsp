@@ -6,10 +6,10 @@
     <img style="border:5px solid green;" src="resources/images/RTG logo.jpg" />
 </center>
 <center>
-    <!-- <a href="http://www.facebook.com/dialog/oauth/?client_id=204946226368181&redirect_uri=http://ec2-50-16-158-177.compute-1.amazonaws.com:8080/ridebuddy/fbLogin&scope=email,read_friendlists&state=RANDOM_NUMBER">
+    <a href="http://www.facebook.com/dialog/oauth/?client_id=204946226368181&redirect_uri=http://ec2-50-16-158-177.compute-1.amazonaws.com/fbLogin&scope=email,read_friendlists&state=RANDOM_NUMBER">
 	  	    <img src="resources/images/fbLogin.png"/>
-	</a>-->
-	<a href="fbLogin">
+	</a>
+	<!-- <a href="fbLogin">
 	  	    <img src="resources/images/fbLogin.png"/>
-  	</a>
+  	</a>-->
 </center>
