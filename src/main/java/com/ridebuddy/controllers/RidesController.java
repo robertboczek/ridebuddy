@@ -100,6 +100,7 @@ public class RidesController extends AbstractController {
 		}
 		model.asMap().put("otherPosts", otherPosts);
 		
+		logger.info("FDSAFDASFDSADFDS");
 		return "myrides";
 	}
 }
