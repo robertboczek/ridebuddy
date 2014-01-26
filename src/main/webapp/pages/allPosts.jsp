@@ -13,8 +13,5 @@
 	</tr>
 </c:forEach>
 </table>
-<<<<<<< HEAD
 
 <script type="text/javascript" src="<c:url value="resources/js/allPosts.js"/>"></script>
-=======
->>>>>>> ca39dace532bff6378710cb2846d23c092be3bac
