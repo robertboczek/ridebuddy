@@ -1,5 +1,6 @@
 package com.ridebuddy.controllers;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ public class PostsController extends AbstractController {
 	private static final Logger logger = Logger.getLogger(PostsController.class);
 
 	private static final String SUCCESS = "SUCCESS";
+	private static final String FAILURE = "FAILURE";
 	
 	@Autowired
 	private PostsDao postsDao;
@@ -38,12 +40,20 @@ public class PostsController extends AbstractController {
 	@RequestMapping(value="/newPost", method = RequestMethod.GET)
 	@ResponseBody
 	public String createNewPost(Posts post, HttpSession session) {
-		User user = getUserFromSession(session);
-		post.setEmail(user.getEmail());
-		post.setPostId(UUID.randomUUID().toString().replace("-", ""));
-		postsDao.save(post);
+		try {
+			logger.info("Time: " + post.getTime());
+			post.setTime(Long.valueOf(new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(post.getTime()).getTime()).toString());
+			User user = getUserFromSession(session);
+			post.setEmail(user.getEmail());
+			post.setPostId(UUID.randomUUID().toString().replace("-", ""));
+			postsDao.save(post);
 		
-		return SUCCESS;
+			return SUCCESS;
+		} catch (ParseException e) {
+			logger.error(e);
+			return FAILURE;
+		}
+		
 	}
 	
 	@RequestMapping(value = "/allPosts")
@@ -56,9 +66,8 @@ public class PostsController extends AbstractController {
 		for (Posts post : posts) {
 			ActivePosts activePost = new ActivePosts();
 			activePost.setPostContent(post.getContent());
-			activePost.setPostTime(new SimpleDateFormat("yyyy/MM/dd HH:mm").format(post.getDate()));
+			activePost.setPostTime(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(post.getDate()));
 			for (Credentials credentials : credentialsList) {
-				logger.info(credentials.getEmail() + " " + post.getEmail());
 				if (credentials.getEmail().equals(post.getEmail())) {
 					activePost.setUserUrl(credentials.getImgSrc());
 					activePost.setUserName(credentials.getFirstName() + " " + credentials.getLastName());
@@ -68,8 +77,6 @@ public class PostsController extends AbstractController {
 			activePosts.add(activePost);
 		}
 		model.asMap().put("posts", activePosts);
-		
-		logger.info("FDASFDFDSAFDS");
 		
 		return "allPosts";
 	}

@@ -1,5 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<script type="text/javascript" src="<c:url value="resources/js/welcome.js"/>"></script>
+<script type="text/javascript" src="<c:url value="resources/datetimepicker/js/bootstrap-datetimepicker.js"/>"></script>
+
 <!-- Control for Adding New Post -->
 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addPostModal">
   Add New Post
@@ -34,4 +37,6 @@
 <div id="postsTable">
 </div>
 
-<script type="text/javascript" src="<c:url value="resources/js/welcome.js"/>"></script>
+
+
+     
