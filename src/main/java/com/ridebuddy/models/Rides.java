@@ -11,15 +11,14 @@ import com.amazonaws.services.dynamodb.datamodeling.DynamoDBTable;
 @DynamoDBTable(tableName="Rides")
 public class Rides extends Entity {
 
-	private long postId;
-	private String email;
+	private String postId, email;
 	
 	@DynamoDBHashKey(attributeName="postId")
-	public long getPostId() {
+	public String getPostId() {
 		return postId;
 	}
 	
-	public void setPostId(long postId) {
+	public void setPostId(String postId) {
 		this.postId = postId;
 	}
 	
@@ -39,6 +38,6 @@ public class Rides extends Entity {
 		}
 		Rides rides = (Rides) object;
 		
-		return Long.valueOf(this.postId).compareTo(Long.valueOf(rides.postId));
+		return this.postId.compareTo(rides.postId);
 	}
 }

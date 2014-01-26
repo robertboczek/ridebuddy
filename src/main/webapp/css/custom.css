@@ -17,6 +17,10 @@ body {
   background-color: white;
 }
 
+#ridesTable {
+  background-color: white;
+}
+
 .layout {
   min-width: 60%;
   width: 60%;
