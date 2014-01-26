@@ -6,7 +6,9 @@
         <div class="btn btn-default">
             <a href="myrides"><span class="glyphicon glyphicon-star"></span> &nbsp; My rides</a>
         </div>
-        Welcome: 
+        <div class="btn btn-default">
+            <a href="welcome"><span class="glyphicon glyphicon-star"></span> &nbsp; All posts</a>
+        </div>
         <a id="userDetailsDropDown" role="button" data-toggle="dropdown" href="#">
             <c:if test="${not empty user.imgSrc}"><img src="${user.imgSrc}"/></c:if>&nbsp; ${user.firstName} ${user.lastName}<span class="caret"></span>
         </a>
