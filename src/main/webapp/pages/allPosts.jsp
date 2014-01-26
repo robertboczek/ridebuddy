@@ -4,7 +4,7 @@
 <c:forEach var="post" items="${posts}">
 	<tr class="post">
 		<td style="width: 30px;"><img src="${post.userUrl}"></img>&nbsp;${post.userName}</td>
-		<td style="width: 30px;">${post.postTime}</td>
+		<td style="width: 130px;">${post.postTime}</td>
 		<td>${post.postContent}</td>
 		<td style="width: 50px;">
 		  <b>${post.numJoined}</b>&nbsp;<span class="glyphicon glyphicon-user"></span>
