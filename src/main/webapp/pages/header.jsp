@@ -2,12 +2,13 @@
 
 <nav class="navbar navbar-default" role="navigation">
 <div id="header">
+    <img height="50" style="float:left; border:5px solid green;" src="resources/images/RTG logo small.png" />
     <div class="dropdown userDetails">
         <div class="btn btn-default">
-            <a href="myrides"><span class="glyphicon glyphicon-star"></span> &nbsp; My rides</a>
+            <a href="myrides">My rides</a>
         </div>
         <div class="btn btn-default">
-            <a href="welcome"><span class="glyphicon glyphicon-star"></span> &nbsp; All posts</a>
+            <a href="welcome">All posts</a>
         </div>
         <a id="userDetailsDropDown" role="button" data-toggle="dropdown" href="#">
             <c:if test="${not empty user.imgSrc}"><img src="${user.imgSrc}"/></c:if>&nbsp; ${user.firstName} ${user.lastName}<span class="caret"></span>
