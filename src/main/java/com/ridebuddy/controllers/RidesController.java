@@ -59,10 +59,9 @@ public class RidesController extends AbstractController {
 	
 	private ActivePosts getActivePostById(List<Posts> posts, List<Credentials> credList, long postId)
 	{
-		List<ActivePosts> myPosts = new ArrayList<ActivePosts>();
+		ActivePosts activePost = new ActivePosts();
 		for (Posts post : posts) {
-		    if (post.getEmail().equals(user.getEmail())) {
-				ActivePosts activePost = new ActivePosts();
+		    if (post.getPostId().equals(postId)) {
 				activePost.setPostContent(post.getContent());
 				activePost.setPostTime(new SimpleDateFormat("yyyy/MM/dd HH:mm").format(post.getDate()));
 				for (Credentials credentials : credList) {
@@ -73,10 +72,10 @@ public class RidesController extends AbstractController {
 						break;
 					}
 				}
-				myPosts.add(activePost);
+				break;
 			}
 		}
-		return myPosts;
+		return activePost;
 	}
 	
 	@RequestMapping(value="/myrides")
@@ -96,10 +95,11 @@ public class RidesController extends AbstractController {
 		List<ActivePosts> otherPosts = new ArrayList<ActivePosts>();
 		for (Rides ride : rides) {
 			if (ride.getEmail().equals(user.getEmail())) {
-				myPosts = getActivePostsForUser(posts, credentialsList, user);
+				otherPosts.add(getActivePostById(posts, credentialsList, ride.getPostId()));
 			}
 		}
+		model.asMap().put("otherPosts", otherPosts);
 		
-		return "welcome";
+		return "myrides";
 	}
 }
