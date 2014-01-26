@@ -18,7 +18,7 @@
       <div class="modal-body">
         <label for="Input_Details">Date/Time</label>
         <div>
-          <input type="datetime" class="form-control" id="rideTime" placeholder="Enter a description!">
+          <input type="datetime" class="form-control" id="rideTime">
         </div>
         <label for="Input_Details">Describe your ride</label>
         <div>

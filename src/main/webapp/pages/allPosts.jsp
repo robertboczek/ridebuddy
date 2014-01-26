@@ -8,8 +8,10 @@
 		<td>${post.postContent}</td>
 		<td style="width: 50px;">
 		  <b>0</b>&nbsp;<span class="glyphicon glyphicon-user"></span>
-		  <div class="btn btn-join join" title="" data-placement="top" data-toggle="tooltip" data-original-title="Join"><span class="glyphicon glyphicon-plus"></span></div>
+		  <div id="joinPost" class="btn btn-join  join" title="" data-placement="top" data-toggle="tooltip" data-original-title="Join"><span class="glyphicon glyphicon-plus"></span></div>
 		</td>
 	</tr>
 </c:forEach>
 </table>
+
+<script type="text/javascript" src="<c:url value="resources/js/allPosts.js"/>"></script>

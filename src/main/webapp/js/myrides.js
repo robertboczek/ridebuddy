@@ -1,0 +1,9 @@
+$(document).ready(function(){
+  $(".post").hover(function(){
+    if($(this).hasClass("cursor")){
+      $(this).removeClass("cursor");
+    }else{
+      $(this).addClass("cursor");
+    }
+  });
+});
