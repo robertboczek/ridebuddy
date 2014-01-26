@@ -12,7 +12,7 @@ import com.amazonaws.services.dynamodb.datamodeling.DynamoDBTable;
 public class Posts extends Entity {
 
 	private String email, content;
-	private String time;
+	private String time, postId;
 	
 	@DynamoDBHashKey(attributeName="email")
 	public String getEmail() {
@@ -44,6 +44,15 @@ public class Posts extends Entity {
 	@DynamoDBIgnore
 	public Date getDate() {
 		return new Date(Long.valueOf(time));
+	}
+	
+	@DynamoDBAttribute
+	public String getPostId() {
+		return postId;
+	}
+
+	public void setPostId(String postId) {
+		this.postId = postId;
 	}
 
 	@Override

@@ -4,7 +4,7 @@
 <div id="header">
     <div class="dropdown userDetails">
         <div class="btn btn-default">
-            <span class="glyphicon glyphicon-star"></span> &nbsp; My rides
+            <a href="myrides"><span class="glyphicon glyphicon-star"></span> &nbsp; My rides</a>
         </div>
         Welcome: 
         <a id="userDetailsDropDown" role="button" data-toggle="dropdown" href="#">

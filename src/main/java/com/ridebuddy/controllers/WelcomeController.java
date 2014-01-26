@@ -32,26 +32,6 @@ public class WelcomeController {
 	@RequestMapping(value="/welcome")
 	public String welcome(Model model, HttpSession session) {
 		
-		List<Posts> posts = postsDao.scan();
-		List<Credentials> credentialsList = credentialsDao.scan();
-		
-		List<ActivePosts> activePosts = new ArrayList<ActivePosts>();
-		for (Posts post : posts) {
-			ActivePosts activePost = new ActivePosts();
-			activePost.setPostContent(post.getContent());
-			activePost.setPostTime(new SimpleDateFormat("yyyy/MM/dd HH:mm").format(post.getDate()));
-			for (Credentials credentials : credentialsList) {
-				logger.info(credentials.getEmail() + " " + post.getEmail());
-				if (credentials.getEmail().equals(post.getEmail())) {
-					activePost.setUserUrl(credentials.getImgSrc());
-					activePost.setUserName(credentials.getFirstName() + " " + credentials.getLastName());
-					break;
-				}
-			}
-			activePosts.add(activePost);
-		}
-		model.asMap().put("posts", activePosts);
-		
 		return "welcome";
 	}
 }
