@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ridebuddy.dao.CredentialsDao;
 import com.ridebuddy.dao.PostsDao;
+import com.ridebuddy.dao.RidesDao;
 import com.ridebuddy.models.Credentials;
 import com.ridebuddy.models.Posts;
+import com.ridebuddy.models.Rides;
 import com.ridebuddy.ui.models.ActivePosts;
 import com.ridebuddy.ui.models.User;
 
@@ -33,6 +35,9 @@ public class PostsController extends AbstractController {
 	
 	@Autowired
 	private PostsDao postsDao;
+	
+	@Autowired
+	private RidesDao ridesDao;
 	
 	@Autowired
 	private CredentialsDao credentialsDao;
@@ -60,6 +65,7 @@ public class PostsController extends AbstractController {
 	public String allPosts(Model model, HttpSession httpSession) {
 		
 		List<Posts> posts = postsDao.scan();
+		List<Rides> rides = ridesDao.scan();
 		List<Credentials> credentialsList = credentialsDao.scan();
 		
 		List<ActivePosts> activePosts = new ArrayList<ActivePosts>();
@@ -67,6 +73,18 @@ public class PostsController extends AbstractController {
 			ActivePosts activePost = new ActivePosts();
 			activePost.setPostContent(post.getContent());
 			activePost.setPostTime(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(post.getDate()));
+			activePost.setPostId(post.getPostId());
+			
+			// Find and add rides too
+			for (Rides ride : rides)
+			{
+				if (ride.getPostId().equals(post.getPostId()))
+				{
+					int numJoined = activePost.getNumJoined() + 1;
+					activePost.setNumJoined(numJoined);
+				}
+			}
+			
 			for (Credentials credentials : credentialsList) {
 				if (credentials.getEmail().equals(post.getEmail())) {
 					activePost.setUserUrl(credentials.getImgSrc());
