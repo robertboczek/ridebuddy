@@ -11,6 +11,11 @@
         <put-attribute name="footer" value="/pages/footer.jsp" />
     </definition>
     
+    <definition name="base.body"
+        template="/pages/bodyLayout.jsp">
+         <put-attribute name="body" value="" />
+    </definition>
+    
     <definition name="login" extends="base.definition">
         <put-attribute name="header" value="" />
         <put-attribute name="title" value="RTG" />
@@ -20,5 +25,9 @@
     <definition name="welcome" extends="base.definition">
         <put-attribute name="title" value="RTG" />
         <put-attribute name="body" value="/pages/welcome.jsp" />
+    </definition>
+    
+    <definition name="allPosts" extends="base.body">
+        <put-attribute name="body" value="/pages/allPosts.jsp" />
     </definition>
 </tiles-definitions>
