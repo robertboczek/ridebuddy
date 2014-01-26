@@ -56,4 +56,9 @@ public class Credentials extends Entity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public int compareTo(Object object) {
+		return 0;
+	}
 }

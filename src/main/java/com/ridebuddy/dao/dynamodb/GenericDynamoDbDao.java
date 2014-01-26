@@ -3,12 +3,15 @@ package com.ridebuddy.dao.dynamodb;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.amazonaws.services.dynamodb.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodb.datamodeling.DynamoDBScanExpression;
+import com.amazonaws.services.dynamodb.datamodeling.PaginatedScanList;
 import com.ridebuddy.aws.DynamoDbClientProvider;
 import com.ridebuddy.dao.GenericDao;
 import com.ridebuddy.models.Entity;
@@ -18,6 +21,8 @@ public abstract class GenericDynamoDbDao<Id extends Serializable, T extends Enti
 	implements GenericDao<Id, T>
 {
 	private static final Logger logger = Logger.getLogger(GenericDynamoDbDao.class);
+
+	private static final Integer LIMIT = 1000;
 	
 	@Autowired
 	protected DynamoDbClientProvider clientProvider;
@@ -69,5 +74,16 @@ public abstract class GenericDynamoDbDao<Id extends Serializable, T extends Enti
 
 	public void remove(T t) {
 		getDynamoDbMapper().delete(t);
+	}
+	
+	public List<T> scan() {
+		DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+			.withExclusiveStartKey(null)
+			.withLimit(LIMIT);
+		
+		PaginatedScanList<T> resutlList = getDynamoDbMapper().scan(entityClass, scanExpression);
+		List<T> sortedResults = new ArrayList<T>(resutlList);
+		Collections.sort(sortedResults);
+		return sortedResults;
 	}
 }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.amazonaws.services.dynamodb.datamodeling.DynamoDBVersionAttribute;
 
-public abstract class Entity implements Serializable {
+public abstract class Entity implements Serializable, Comparable {
 
 	private static final long serialVersionUID = -6532786020442679277L;
 	

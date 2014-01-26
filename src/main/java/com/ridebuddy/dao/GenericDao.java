@@ -14,4 +14,6 @@ public interface GenericDao<Id extends Serializable, T extends Entity> {
 	public List<T> query(T t);
 	
 	public void remove(T t);
+	
+	public List<T> scan();
 }

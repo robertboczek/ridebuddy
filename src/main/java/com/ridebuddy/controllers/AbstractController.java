@@ -15,9 +15,19 @@ public abstract class AbstractController {
 	
 	protected static final String infoMessage = "infoMessage";
 
+	private static final String USER_KEY = "user";
+
 	protected void saveUserInSession(HttpSession session, User user) {
 		session.setAttribute(SecurityFilter.AUTHORIZED_KEY, true);
-		session.setAttribute("user", user);
+		session.setAttribute(USER_KEY, user);
 		logger.info("Saving session");
+	}
+	
+	protected User getUserFromSession(HttpSession session) {
+		User user = null;
+		if ((Boolean)session.getAttribute(SecurityFilter.AUTHORIZED_KEY)) {
+			user = (User) session.getAttribute(USER_KEY);
+		}
+		return user;
 	}
 }
