@@ -13,6 +13,10 @@ body {
   width:300px;
 }
 
+#postsTable {
+  background-color: white;
+}
+
 .layout {
   min-width: 60%;
   width: 60%;
